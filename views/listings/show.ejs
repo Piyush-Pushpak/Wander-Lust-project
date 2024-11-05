@@ -1,0 +1,87 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+    <body>
+        <div class="row  mt-4">
+            <div class="col-8 offset-3">
+                <h3>
+                    <%= listing.title %>
+                </h3>
+            </div>
+            <br><br>
+            <div class="col-6 offset-3 show-card">
+                <div class="card">
+                    <img src="<%= listing.image.url %>" class="card-img-top show-image" alt="listing-image">
+                    <br>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>
+                                Owner:
+                            </b>
+                            <%= listing.owner.username %>
+                                <br>
+                                <b>
+                                    Description:
+                                </b>
+                                <%= listing.description %>
+                                    <br>
+                                    <b>
+                                        Price:
+                                    </b>
+                                    <%= listing.price %>
+                                        <br>
+                                        <b>
+                                            Location:
+                                        </b>
+                                        <%= listing.location %>
+                                            <br>
+                                            <b>
+                                                Country:
+                                            </b>
+                                            <%= listing.country %>
+                                                <br>
+                    </div>
+                </div>
+            </div>
+            <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+                <div class="btns mb-4">
+                    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark offset-3 add-btn">Edit</a>
+                    <form method="post" action="/listings/<%= listing._id %>?_method=delete">
+                        <button class="btn btn-dark ms-2">Delete</button>
+                    </form>
+                </div>
+                <% } %>
+                    <hr>
+                    <% if(currUser) { %>
+                        <div class="btns mb-4">
+                            <a href="/listings/<%= listing._id %>/review" class="btn bg-primary text-white add-btn">Add
+                                Review</a>
+                        </div>
+                        <% } %>
+                            <h4 class="reviewheading">Reviews</h4>
+                            <br><br>
+                            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+                                <% for( review of listing.reviews ) { %>
+                                    <div class="review card border border-primary pt-1 mx-3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <b>
+                                                    <%= review.author.username %>
+                                                </b>
+                                            </h5>
+                                            <p class="card-text">
+                                                <b>Comment : </b>
+                                                <%= review.comment%>
+                                            </p>
+                                            <p class="starability-result card-text" data-rating="<%= review.rating%>">
+                                            </p>
+                                            <form
+                                                action="/listings/<%= listing._id %>/review/<%= review._id %>?_method=delete"
+                                                method="post" class="mb-2">
+                                                <button class="btn btn-dark btn-sm">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                            </div>
+        </div>
+    </body>

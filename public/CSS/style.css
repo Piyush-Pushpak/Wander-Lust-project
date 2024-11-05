@@ -1,0 +1,302 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 3rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+    font-size: 1.2rem !important;
+}
+
+/* footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-social i {
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* card */
+.card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* card-effect */
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.25;
+    background-color: white;
+}
+
+/* Edit and New */
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* Show */
+.show-image {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Review (show.ejs)*/
+@media screen and (max-width: 575px) {
+    .review {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .review {
+        width: 90% !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .review {
+        width: 45% !important;
+    }
+
+    .search-in {
+        font-size: 0.75rem !important;
+    }
+
+    .search-btn {
+        font-size: 0.75rem !important;
+    }
+
+    .navbar a {
+        font-size: 0.75rem !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .review {
+        width: 29.5% !important;
+    }
+}
+
+.reviewheading {
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Search button */
+.search-btn {
+    padding: 0 1rem 0 1rem;
+    border-radius: 25px !important;
+    background-color: #fe424d !important;
+    color: white !important;
+}
+
+.search-btn:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.345);
+}
+
+.search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-in {
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem !important;
+    border-radius: 25px !important;
+}
+
+/* index.ejs */
+#filters {
+    height: 5rem;
+    display: flex;
+    top: 4.75rem;
+    position: sticky;
+    z-index: 2;
+    background-color: white;
+}
+
+#filterOne {
+    height: 4.2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    white-space: nowrap;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 2.5rem;
+    margin-right: 1rem;
+}
+
+#filterOne::-webkit-scrollbar {
+    display: none;
+}
+
+.filter {
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    opacity: 0.75;
+    height: 3rem;
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter p {
+    font-size: 0.8rem;
+}
+
+.formcheck {
+    border: 2px solid black;
+    padding: 1.2rem !important;
+    height: 4.2rem;
+    border-radius: 1.5rem;
+}
+
+@media screen and (max-width: 767px) {
+    #filterOne {
+        margin-top: 1.5rem;
+        width: 100%;
+        background-color: white;
+    }
+
+    #filters {
+        display: block;
+        background-color: white;
+        height: 7.5rem;
+    }
+
+    .formcheck {
+        border: none;
+    }
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    #filterOne {
+        width: 47.5%;
+        margin-right: 2rem;
+    }
+
+    #filters {
+        top: 4.65rem !important;
+    }
+
+    #filterOne i,
+    p {
+        font-size: 0.75rem !important;
+    }
+
+    .formcheck {
+        font-size: 0.75rem !important;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .formcheck {
+        width: 30% !important;
+        margin-left: 11.5rem !important;
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+        padding-right: 2.rem !important;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    .formcheck {
+        width: 27.5% !important;
+        margin-left: 11.5rem !important;
+        padding-top: 1.25rem !important;
+        padding-bottom: 1.25rem !important;
+        padding-right: 2.5rem !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #filterOne {
+        width: 50%;
+    }
+
+    .formcheck {
+        width: 20%;
+        margin-left: 13.5rem;
+    }
+}
+
+.tax-info {
+    display: none;
+}
