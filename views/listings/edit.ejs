@@ -24,7 +24,8 @@
                     </div>
                     <div class="mb-3">
                         Original listing image <br>
-                        <img style="height: 7.5rem;width: 7.55rem;margin-top: 1rem;" src="<%= originalImageUrl %>" alt="listing_img">
+                        <img style="height: 7.5rem;width: 7.55rem;margin-top: 1rem;" src="<%= originalImageUrl %>"
+                            alt="listing_img">
                     </div>
                     <div class=" mb-3">
                         <label for=" image" class="form-label">Upload Image</label>
@@ -55,6 +56,25 @@
                         <div class="invalid-feedback">
                             Enter valid location!
                         </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="locationType" class="form-label">LocationType</label>
+                        <input type=" text" class="form-control" value="<%=listing.locationType%>" readonly>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Choosed Location Type</label>
+                        <select class="form-select" id="inputGroupSelect01" name="listing[locationType]"
+                            value="<%=listing.locationType%>" required>
+                            <option value="Trending">Trending</option>
+                            <option value="Rooms">Rooms</option>
+                            <option value="Iconic Cities">Iconic Cities</option>
+                            <option value="Mountains">Mountains</option>
+                            <option value="Castles">Castles</option>
+                            <option value="Amazing Pools">Amazing Pools</option>
+                            <option value="Camping">Camping</option>
+                            <option value="Farms">Farms</option>
+                            <option value="Arctic">Arctic</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-dark add-btn">Save</button>

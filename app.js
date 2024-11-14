@@ -2,6 +2,8 @@ if (process.env.NOde_ENV != "production") {
     require('dotenv').config();
 }
 
+const Listing = require("./models/listing.js");
+const wrapAsync = require("./utils/WrapAsync.js");
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -85,6 +87,16 @@ app.use((req, res, next) => {
 app.use("/listings", listings);
 app.use("/", reviews);
 app.use("/", users);
+
+app.get('/:text', wrapAsync(async(req, res) => {
+    const text = req.params.text;
+    const Listings = await Listing.find({locationType:text});
+    if(Listings.length == 0){
+        req.flash("error", "No listing is present for your filter!");
+        return res.redirect("/listings");
+    }
+    res.render("./listings/filter.ejs", { Listings });
+}));
 
 app.all("*", (req, res, next) => {
     next(new expressError(404, "Page not found!"));

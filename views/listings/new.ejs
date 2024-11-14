@@ -47,6 +47,21 @@
                             Enter valid location!
                         </div>
                     </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01">Location Type</label>
+                        <select class="form-select" id="inputGroupSelect01" name="listing[locationType]"
+                            value="<%=listing.locationType%>" required>
+                            <option value="Trending">Trending</option>
+                            <option value="Rooms">Rooms</option>
+                            <option value="Iconic Cities">Iconic Cities</option>
+                            <option value="Mountains">Mountains</option>
+                            <option value="Castles">Castles</option>
+                            <option value="Amazing Pools">Amazing Pools</option>
+                            <option value="Camping">Camping</option>
+                            <option value="Farms">Farms</option>
+                            <option value="Arctic">Arctic</option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <button class="btn btn-dark add-btn">Add</button>
                     </div>
