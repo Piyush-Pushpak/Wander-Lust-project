@@ -88,10 +88,23 @@ app.use("/listings", listings);
 app.use("/", reviews);
 app.use("/", users);
 
-app.get('/:text', wrapAsync(async(req, res) => {
+app.get('/search', wrapAsync(async (req, res) => {
+    const search = req.query.search.trim();
+    const Listings = await Listing.find({
+        location: { $regex: new RegExp(search, 'i') }
+    });
+    if (Listings.length == 0) {
+        req.flash("error", "No listing is present for your search!");
+        return res.redirect("/listings");
+    }
+    res.render("./listings/filter.ejs", { Listings });
+}));
+
+
+app.get('/:text', wrapAsync(async (req, res) => {
     const text = req.params.text;
-    const Listings = await Listing.find({locationType:text});
-    if(Listings.length == 0){
+    const Listings = await Listing.find({ locationType: text });
+    if (Listings.length == 0) {
         req.flash("error", "No listing is present for your filter!");
         return res.redirect("/listings");
     }
